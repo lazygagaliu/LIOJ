@@ -1,14 +1,14 @@
 const readline = require('readline')
 var rl = readline.createInterface({
   input: process.stdin
-})
+});
 
 var lines = []
 
 // 讀取到一行，先把這一行加進去 lines 陣列，最後再一起處理
 rl.on('line', function (line) {
   lines.push(line)
-})
+});
 
 // 輸入結束，開始針對 lines 做處理
 rl.on('close', function () {
@@ -52,8 +52,8 @@ function solve(lines) {
   // 4182-7149-6260-3757
   const getCardNum = card => {
     let num = ''
-    for (let i = 0; i < card.length; i++) {
-      if (card[i] !== '-') {
+    for(let i = 0; i < card.length; i++){
+      if(card[i] !== '-'){
         num += card[i]
       }
     }
@@ -62,10 +62,10 @@ function solve(lines) {
 
   const getSum = card => {
     let sum = 0
-    for (let i = 0; i < card.length - 1; i++) {
-      if (i % 2 === 0) {
+    for(let i = 0; i < card.length - 1; i++){
+      if(i % 2 === 0){
         let s = Number(card[i]) * 2
-        if (s > 9) sum += s - 9
+        if(s > 9) sum += (s - 9)
         else sum += s
       } else {
         sum += Number(card[i])
@@ -79,7 +79,7 @@ function solve(lines) {
 
   const checkBrand = firstNum =>
     firstNum === '4' ? 'VISA' : firstNum === '5' ? 'MASTER_CARD' : 'INVALID'
-
+ 
   let cardNum = lines[0]
   cardNum = getCardNum(cardNum)
 
@@ -89,10 +89,10 @@ function solve(lines) {
   }
 
   const result = getResult(
-    Number(cardNum[cardNum.length - 1]),
-    getCheckNum(getSum(cardNum))
+    Number(cardNum[cardNum.length - 1]), getCheckNum(getSum(cardNum))
   )
 
   if (result) console.log(checkBrand(cardNum[0]))
   else console.log('INVALID')
+
 }
