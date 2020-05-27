@@ -20,12 +20,12 @@ rl.on('close', function () {
 function solve(lines) {
   // 1991 11 7
   const getResult = numbers => {
-    if(typeof numbers !== 'string') numbers = numbers.toString()
+    if (typeof numbers !== 'string') numbers = numbers.toString()
     result = numbers
       .split('')
       .map(e => +e)
       .reduce((acc, cur) => acc + cur, 0)
-    if(Math.floor(result / 10) >= 1){
+    if (Math.floor(result / 10) >= 1) {
       getResult(result)
     } else {
       console.log(result)
