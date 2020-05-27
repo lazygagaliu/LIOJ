@@ -25,7 +25,7 @@ function solve(lines) {
       .split('')
       .map(e => +e)
       .reduce((acc, cur) => acc + cur, 0)
-    if(Math.floor(result / 10) >= 1){
+    if(result >= 10){
       getResult(result)
     } else {
       console.log(result)
@@ -48,7 +48,7 @@ function solve(lines) {
 //       }
 //     }
 
-//     if (Math.floor(result / 10) >= 1) {
+//     if (result >= 10) {
 //       getResult(result.toString())
 //     } else {
 //       console.log(result)
