@@ -25,5 +25,10 @@ rl.on('close', function () {
 function solve(lines) {
   const getLength = (x1, y1, x2, y2) =>
     Math.sqrt(Math.pow(Math.abs(x1 - x2), 2) + Math.pow(Math.abs(y1 - y2), 2))
-  
+  const n = +lines[0]
+  for (let i = 1; i <= n; i++) {
+    const a = 1 + (i - 1) * 4
+    const d = getLength(+lines[a], +lines[a + 1], +lines[a + 2], +lines[a + 3])
+    console.log(d.toFixed(2))
+  }
 }

@@ -23,7 +23,11 @@ rl.on('close', function () {
 
 // for/if/func
 function solve(lines) {
-  const getLength = (x1, y1, x2, y2) =>
-    Math.sqrt(Math.pow(Math.abs(x1 - x2), 2) + Math.pow(Math.abs(y1 - y2), 2))
-  
+  const n = Number(lines[0])
+  let result = 0
+  for (let i = 1; i <= n; i++) {
+    const root = Math.sqrt(i)
+    if (Number.isInteger(root)) result += i
+  }
+  console.log(result)
 }

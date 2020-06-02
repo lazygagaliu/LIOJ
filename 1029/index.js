@@ -23,7 +23,18 @@ rl.on('close', function () {
 
 // for/if/func
 function solve(lines) {
-  const getLength = (x1, y1, x2, y2) =>
-    Math.sqrt(Math.pow(Math.abs(x1 - x2), 2) + Math.pow(Math.abs(y1 - y2), 2))
-  
+  const arr = lines[0].split(' ')
+  const a = +arr[0]
+  const b = +arr[2]
+  const result =
+    arr[1] === '+'
+      ? a + b
+      : arr[1] === '-'
+      ? a - b
+      : arr[1] === '*'
+      ? a * b
+      : arr[1] === '/'
+      ? a / b
+      : null
+  console.log(result)
 }

@@ -23,7 +23,15 @@ rl.on('close', function () {
 
 // for/if/func
 function solve(lines) {
-  const getLength = (x1, y1, x2, y2) =>
-    Math.sqrt(Math.pow(Math.abs(x1 - x2), 2) + Math.pow(Math.abs(y1 - y2), 2))
-  
+  const arr = lines[0].split('')
+  const n = Math.floor(arr.length / 2)
+  let result = 'True'
+  for (let i = 0; i < n; i++) {
+    if (arr[i] !== arr[arr.length - 1 - i]) {
+      result = 'False'
+    } else {
+      result = 'True'
+    }
+  }
+  console.log(result)
 }
