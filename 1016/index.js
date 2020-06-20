@@ -16,42 +16,43 @@ rl.on('close', function () {
   solve(lines)
 })
 
-
 // 上面都不用管，只需要完成這個 function 就好，可以透過 lines[i] 拿取內容
 // Array methods
 function solve(lines) {
   const n = lines[0]
-  const result = lines.reduce( ( obj, cur, i ) => {
-    if(i === 0) return obj
-    if(cur === 'A') {
-      let arr = obj.a
-      arr.push(i)
-      return {
-        ...obj,
-        a: arr
+  const result = lines.reduce(
+    (obj, cur, i) => {
+      if (i === 0) return obj
+      if (cur === 'A') {
+        let arr = obj.a
+        arr.push(i)
+        return {
+          ...obj,
+          a: arr
+        }
+      } else {
+        let arr = obj.b
+        arr.push(i)
+        return {
+          ...obj,
+          b: arr
+        }
       }
-    }else{
-      let arr = obj.b
-      arr.push(i)
-      return {
-        ...obj,
-        b: arr
-      }
+    },
+    {
+      a: [],
+      b: []
     }
-  }, {
-    a: [],
-    b: []
-  })
-  const {a, b} = result
-  if(a.length === b.length || a.length === 0 || b. length === 0){
+  )
+  const { a, b } = result
+  if (a.length === b.length || a.length === 0 || b.length === 0) {
     console.log('PEACE')
-  }else if(a.length < b.length){
+  } else if (a.length < b.length) {
     a.forEach(e => console.log(e))
-  }else{
+  } else {
     b.forEach(e => console.log(e))
   }
 }
-
 
 // for/if/func
 // function solve(lines) {
