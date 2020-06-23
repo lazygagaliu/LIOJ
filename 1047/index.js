@@ -20,22 +20,34 @@ rl.on('close', function () {
 // 上面都不用管，只需要完成這個 function 就好，可以透過 lines[i] 拿取內容
 // Array methods
 function solve(lines) {
+  const [n, nq] = lines[0].split(' ')
   let arr = []
-  for(let i = 1; i < lines.length; i++){
+  let queries = []
+  for(let i = 1; i <= n; i++){
     arr.push(Number(lines[i]))
   }
-
-  let max = -Infinity
-  let sum = 0
-  for(let i = 0; i < arr.length; i++){
-    if (sum + arr[i] > arr[i]){
-      sum += arr[i]
-    } else {
-      sum = arr[i]
-    }
-    if(max < sum) max = sum
+  for(let i = Number(n) + 1; i < lines.length; i++){
+    queries.push(Number(lines[i]))
   }
-  console.log(max)
+
+  const search = (arr, query) => {
+    let left = 0
+    let right = arr.length - 1
+    
+    while(right >= left){
+      let middle = Math.floor((left + right) / 2)
+      if(arr[middle] === query){
+        return middle
+      } else if(query > arr[middle]) {
+        left = middle + 1
+      } else {
+        right = middle - 1
+      }
+    }
+    return -1
+  }
+
+  queries.forEach( query => console.log(search(arr, query)))
 }
 
 
